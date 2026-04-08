@@ -11,7 +11,7 @@ Character::Character(string name, int hp, int hpMax, int atk, int def)
 	this->def = def;
 }
 
-void Character::takeDamage(int damage) 
+void Character::takeDamage(int damage) //Coucou
 {
 	if (hp - damage > 0)
 	{
@@ -69,5 +69,5 @@ int Character::getDef() {
 
 void Character::setHp(int newHp) 
 {
-
+	hp = newHp;
 }
