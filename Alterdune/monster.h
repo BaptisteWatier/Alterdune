@@ -24,6 +24,7 @@ public:
     void displayInfo() const override;
     void changeMercy(int);
     bool canBeSpared() const;
+
     void resetMercy();
 };
 
