@@ -1,8 +1,8 @@
-#include "Character.h"
+#include "character.h"
 
 using namespace std;
 
-Character::Character(string name, int hp, int hpMax, int atk, int def) 
+Character::Character(const string& name, int hp, int hpMax, int atk, int def) 
 {
 	this->name = name;
 	this->hp = hp;
@@ -11,7 +11,7 @@ Character::Character(string name, int hp, int hpMax, int atk, int def)
 	this->def = def;
 }
 
-void Character::takeDamage(int damage) //Coucou
+void Character::takeDamage(int damage) 
 {
 	if (hp - damage > 0)
 	{
@@ -47,23 +47,23 @@ bool Character::isAlive()
 	}
 }
 
-string Character::getName() {
+string Character::getName() const {
 	return name;
 }
 
-int Character::getHp() {
+int Character::getHp() const {
 	return hp;
 }
 
-int Character::getHpMax() {
+int Character::getHpMax() const {
 	return hpMax;
 }
 
-int Character::getAtk() {
+int Character::getAtk() const{
 	return atk;
 }
 
-int Character::getDef() {
+int Character::getDef() const {
 	return def;
 }
 

@@ -1,23 +1,21 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include <string>
 #include <vector>
-#include "Item.h"
-#include "Player.h"
+#include "item.h"
 
-using namespace std;
+class Player; 
 
 class Inventory {
 protected:
-    vector<Item> Items;
+    std::vector<Item> items;
 
 public:
-    Inventory(string name, string type, int value, int quantity);
+    Inventory(const std::vector<Item>& items);
 
-    void addItem(Item);
-    void showItems();
-    void useItem(int, Player&);
+    void addItem(const Item& item);
+    void showItems() const;
+    void useItem(int a, Player& p);
 };
 
 #endif

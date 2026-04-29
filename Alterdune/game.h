@@ -3,30 +3,49 @@
 
 #include <string>
 #include <vector>
-#include "Bestiary.h"
-#include "Player.h"
-#include "actAction.h"
-#include "Monster.h"
+#include <map>
 
-using namespace std;
+#include "player.h"
+#include "monster.h"
+#include "bestiary.h"
+#include "battle.h"
+#include "actAction.h"
+#include "item.h"
+#include "inventory.h"
 
 class Game {
 protected:
     Player player;
-    vector<Monster> monsterPool;
     Bestiary bestiary;
-    vector<string> actIds;
-    vector<ActAction> actActions;
+
+    std::vector<Monster> monsters;
+    std::vector<ActAction> actCatalog;
+
+    bool gameOver;
 
 public:
-    Game(Player player, vector<Monster> monsterPool, Bestiary bestiary, vector<string> actIds, vector<ActAction> actActions);
+    Game(const Player& player, const Bestiary& bestiary,
+        const std::vector<Monster>& monsters,
+        const std::vector<ActAction>& actCatalog);
 
-    void init();
-    void mainMenu();
-    void itemCSV(string);
-    void monsterCSV(string);
-    void startRandomBattle();
-    void showEnding();
+    void start();
+    void showMenu();
+
+    void showPlayerStats();
+    void showPlayerItems();
+    void showBestiary();
+
+    void startBattle();
+
+    bool loadItems(const std::string& filename);
+    bool loadMonsters(const std::string& filename);
+    void initActCatalog();
+
+    Monster getRandomMonster() const;
+
+    bool isGameOver() const;
+    void checkEndGame();
+    void showEnding() const;
 };
 
 #endif

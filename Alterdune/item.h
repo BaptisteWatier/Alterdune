@@ -3,20 +3,22 @@
 
 #include <string>
 
-using namespace std;
-
 class Item {
 protected:
-    string name;
-    string type;
+    std::string name;
+    std::string type; // classe ?
     int value;
     int quantity;
 
 public:
-    Item(string name, string type, int value, int quantity);
+    Item(const std::string& name, const std::string& type, int value, int quantity);
+
+    std::string getName() const;
+    std::string getDescription() const;
+    int getValue() const;
+    int getQuantity() const;
 
     bool useOne();
-    void getDescription();
 };
 
 #endif
