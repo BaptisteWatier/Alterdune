@@ -9,7 +9,7 @@ using namespace std;
 int main() {
     string playerName;
     cout << "Entrez le nom de votre personnage : ";
-    getline(cin, playerName);
+    cin >> playerName;
 
     Inventory inventory({});
     Player player(playerName, 100, 100, 10, 5, 0, 0, 0, inventory);
